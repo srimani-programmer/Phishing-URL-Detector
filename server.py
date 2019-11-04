@@ -19,8 +19,8 @@ def allowed_file(filename):
 
 @app.route('/result')
 def result():
-    urlname  = request.args['name']
-    result  = phishing_detection.getResult(urlname)
+    url  = request.args['url']
+    result  = phishing_detection.getResult(url)
     return result
 
 
@@ -40,9 +40,12 @@ def hello():
 			with open("files/URL.txt","wb") as f:
 				f.write(contents)
 			file.save = (os.path.join(app.config['UPLOAD_FOLDER'], filename))
-			return render_template("getInput.html")
-	return  render_template("getInput.html")
+			return render_template("index.html")
+	return  render_template("index.html")
 
+@app.route('/about', methods = ['GET', 'POST'])
+def about_page():
+	return  render_template("about.html")
 			
 
 
