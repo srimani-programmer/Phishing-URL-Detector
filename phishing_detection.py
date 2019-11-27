@@ -23,7 +23,8 @@ def getResult(url):
     classifier = LogisticRegression()
     classifier.fit(X_train, y_train)
     score = classifier.score(X_test, y_test)
-    print(score*100)
+    score = score*100
+    print(score)
 
     X_new = []
 
@@ -53,11 +54,9 @@ def getResult(url):
                                                     <ul class="listing-mark iq-mtb-20 iq-tw-6 iq-font-black">
                                                         <li class="good">"""+analysis_result+"""</li>
                                                     </ul>
-                                                    <a class="button iq-mt-20 iq-mb-80" href="#" role="button">Read More</a>
+                                                    <h5 class="iq-mt-20 iq-mb-20" style="color: #65d972;font-size: 16px;">Accuracy : """+str(score)+"""</h5>
                                                 </div>
                                             </div>
-                                            <!-- For Graphs-->
-                                            <!-- <div class="col-lg-4 col-md-12 iq-about-img"><img class="img-fluid wow bounceInUp" data-wow-duration="2s" src="{{ url_for('static', filename='images/02.png') }}" alt="#" style="visibility: visible; animation-duration: 2s; animation-name: bounceInUp;"> </div> -->
                                         </div>
                                     </div>
                                 </section>
